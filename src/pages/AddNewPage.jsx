@@ -12,6 +12,8 @@ import { OutlinedInput } from "@mui/material";
 import { InputAdornment } from "@mui/material";
 import { nanoid } from "nanoid";
 import { toast } from "sonner";
+import InputFileUpload from "../components/ImageHandler";
+import { DoNotStep } from "@mui/icons-material";
 
 function AddNewPage() {
   const booksInLocalStorage = localStorage.getItem("books");
@@ -25,6 +27,7 @@ function AddNewPage() {
   const [condition, setCondition] = useState("");
   const [price, setPrice] = useState("");
   const [contact, setContact] = useState("");
+  const [image, setImage] = useState("/src/assets/ipa placeholder.svg");
 
   const navigate = useNavigate();
 
@@ -57,6 +60,7 @@ function AddNewPage() {
           condition: condition,
           price: price,
           contact: contact,
+          image: image,
         },
       ];
       // // 8. update the notes in local storage
@@ -250,6 +254,15 @@ function AddNewPage() {
               sx={{ mt: "10px" }}
               color="secondary"
             />
+          </Grid>
+        </Grid>
+        <Grid container spacing={2} sx={{ mt: "20px", mb: "5px" }}>
+          <Grid size={4} sx={{ display: "flex", alignItems: "center" }}>
+            <Typography variant="h6">Image:</Typography>
+          </Grid>
+          <Grid size={8} sx={{ display: "flex", alignItems: "center", gap: 5 }}>
+            <InputFileUpload sx={{ display: "block" }} setImage={setImage} />
+            <img id="image_preview" src={image} width="300px"></img>
           </Grid>
         </Grid>
         <Box

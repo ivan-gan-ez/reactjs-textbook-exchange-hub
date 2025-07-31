@@ -12,6 +12,7 @@ import { OutlinedInput } from "@mui/material";
 import { InputAdornment } from "@mui/material";
 import { nanoid } from "nanoid";
 import { toast } from "sonner";
+import InputFileUpload from "../components/ImageHandler";
 
 function EditPage() {
   const { id } = useParams();
@@ -29,6 +30,7 @@ function EditPage() {
   const [condition, setCondition] = useState(selectedBook.condition);
   const [price, setPrice] = useState(selectedBook.price);
   const [contact, setContact] = useState(selectedBook.contact);
+  const [image, setImage] = useState(selectedBook.image);
 
   const navigate = useNavigate();
 
@@ -59,6 +61,7 @@ function EditPage() {
             book.condition = condition;
             book.price = price;
             book.contact = contact;
+            book.image = image;
           }
           return book;
         })
@@ -253,6 +256,15 @@ function EditPage() {
             />
           </Grid>
         </Grid>
+        <Grid container spacing={2} sx={{ mt: "20px", mb: "5px" }}>
+          <Grid size={4} sx={{ display: "flex", alignItems: "center" }}>
+            <Typography variant="h6">Image:</Typography>
+          </Grid>
+          <Grid size={8} sx={{ display: "flex", alignItems: "center", gap: 5 }}>
+            <InputFileUpload sx={{ display: "block" }} setImage={setImage} />
+            <img id="image_preview" src={image} width="300px"></img>
+          </Grid>
+        </Grid>
         <Box
           sx={{
             display: "flex",
@@ -262,7 +274,7 @@ function EditPage() {
           }}
         >
           <Button color="primary" variant="contained" onClick={handleUpdate}>
-            Add
+            Update
           </Button>
           <Button
             component={RouterLink}

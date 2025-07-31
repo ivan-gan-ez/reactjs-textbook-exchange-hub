@@ -14,6 +14,7 @@ import DeleteIcon from "@mui/icons-material/Delete";
 
 export default function ImgMediaCard(props) {
   const { book, onDelete } = props;
+
   const handleDelete = (book) => {
     const confirmDelete = confirm(
       "Are you sure you want to remove this   book?"
@@ -24,12 +25,16 @@ export default function ImgMediaCard(props) {
       onDelete(book);
     }
   };
+
+  const loadImage = (url) => {};
+
   return (
     <Card sx={{ maxWidth: 345, mb: 4 }}>
       <CardMedia
         component="img"
-        alt="green iguana"
-        image="src/assets/ipa placeholder.svg"
+        alt="image"
+        image={book.image}
+        height="200px"
       />
       <CardContent>
         <Typography gutterBottom variant="h6" component="div">
