@@ -37,7 +37,13 @@ export default function ImgMediaCard(props) {
         height="200px"
       />
       <CardContent>
-        <Typography gutterBottom variant="h6" component="div">
+        <Typography
+          gutterBottom
+          variant="h6"
+          component="div"
+          noWrap
+          sx={{ fontSize: 18, fontWeight: 600 }}
+        >
           {book.title}
         </Typography>
         <Typography variant="body2" sx={{ color: "text.secondary", mb: 1 }}>
