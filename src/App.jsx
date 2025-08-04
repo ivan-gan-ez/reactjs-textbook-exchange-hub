@@ -39,7 +39,7 @@ function App() {
         contrastText: "#000",
       },
       black: {
-        main: "#000",
+        main: "#000000",
         contrastText: "#fff",
       },
     },

@@ -13,6 +13,9 @@ import Tooltip from "@mui/material/Tooltip";
 import MenuItem from "@mui/material/MenuItem";
 import HomeIcon from "@mui/icons-material/Home";
 import PersonIcon from "@mui/icons-material/Person";
+import DashboardIcon from "@mui/icons-material/Dashboard";
+import PostAddIcon from "@mui/icons-material/PostAdd";
+import ListIcon from "@mui/icons-material/List";
 
 import { Link as RouterLink } from "react-router";
 import { useState } from "react";
@@ -21,25 +24,27 @@ const pages = [
   {
     label: "Dashboard",
     url: "/",
-    icon: <HomeIcon></HomeIcon>,
+    icon: <DashboardIcon></DashboardIcon>,
   },
   {
     label: "Post Listing",
     url: "/add",
-    icon: <HomeIcon></HomeIcon>,
+    icon: <PostAddIcon></PostAddIcon>,
   },
   {
     label: "Wishlist",
     url: "/wishlist",
-    icon: <HomeIcon></HomeIcon>,
+    icon: <ListIcon></ListIcon>,
   },
 ];
 
 function ResponsiveAppBar() {
-  const currentuserInLocalStorage = localStorage.getItem("user");
-  const [user, setUser] = useState(
-    currentuserInLocalStorage ? JSON.parse(currentuserInLocalStorage) : 0
-  );
+  // now-deleted fake login system
+
+  // const currentuserInLocalStorage = localStorage.getItem("user");
+  // const [user, setUser] = useState(
+  //   currentuserInLocalStorage ? JSON.parse(currentuserInLocalStorage) : 0
+  // );
 
   const [anchorElNav, setAnchorElNav] = React.useState(null);
   const [anchorElUser, setAnchorElUser] = React.useState(null);
@@ -108,7 +113,10 @@ function ResponsiveAppBar() {
                   component={RouterLink}
                   to={page.url}
                 >
-                  <Typography color="black" sx={{ textAlign: "center" }}>
+                  <Typography
+                    color="black"
+                    sx={{ textAlign: "center", fontSize: "15px" }}
+                  >
                     {page.label}
                   </Typography>
                 </MenuItem>
@@ -135,9 +143,14 @@ function ResponsiveAppBar() {
                 onClick={handleCloseNavMenu}
                 component={RouterLink}
                 to={page.url}
-                sx={{ my: 2, color: "white", display: "block" }}
+                color="black"
+                startIcon={page.icon}
+                sx={{ my: 2 }}
               >
-                <Typography color="black" sx={{ display: "inline" }}>
+                <Typography
+                  color="black"
+                  sx={{ display: "inline", fontSize: "20px" }}
+                >
                   {page.label}
                 </Typography>
               </Button>

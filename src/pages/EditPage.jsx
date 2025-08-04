@@ -45,7 +45,7 @@ function EditPage() {
       contact === ""
     ) {
       toast("One or more fields is empty.");
-    } else if (ISBN.match("[^0-9]")) {
+    } else if (ISBN.match("[^0-9]") && !ISBN.match("[-]")) {
       toast("Invalid ISBN.");
     } else if (price.match("[^0-9]") && !price.match("[.]")) {
       toast("Invalid price.");
