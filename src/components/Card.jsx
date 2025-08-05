@@ -16,9 +16,7 @@ export default function ImgMediaCard(props) {
   const { book, onDelete } = props;
 
   const handleDelete = (book) => {
-    const confirmDelete = confirm(
-      "Are you sure you want to remove this   book?"
-    );
+    const confirmDelete = confirm("Are you sure you want to remove this book?");
     // if confirmRemove is true, remove the student
     if (confirmDelete) {
       // passing up the student id that we want to remove
